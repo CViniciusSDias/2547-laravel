@@ -45,7 +45,6 @@ class SeriesController extends Controller
                 $request->episodesPerSeason,
             );
             Mail::to($user)->queue($email);
-            sleep(2);
         }
 
         return to_route('series.index')
