@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\SeriesCreated as SeriesCreatedEvent;
 use App\Mail\SeriesCreated;
 use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -26,7 +27,7 @@ class EmailUsersAboutSeriesCreated
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(SeriesCreatedEvent $event)
     {
         $userList = User::all();
         foreach ($userList as $index => $user) {
